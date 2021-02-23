@@ -47,16 +47,6 @@ extension CitiesCollectionViewController: UICollectionViewDelegate, UICollection
         cell.cityImageView.contentMode = .scaleToFill
         cell.cityImageView.layer.cornerRadius = 15
         
-        getImageURLRequestForCity(cityName: city, completion: { (urlRequest) in
-            guard let urlRequest = urlRequest else { return }
-            loadImage(urlRequest: urlRequest, completion: { (image) in
-                guard let image = image else { return }
-                DispatchQueue.main.async {
-                    cell.cityImageView.image = image
-                }
-            })
-        })
-        
         return cell
     }
     

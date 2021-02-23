@@ -40,7 +40,7 @@ func loadImage(urlRequest: URLRequest, completion: @escaping (UIImage?) -> () ) 
     }.resume()
 }
 
-func getImageURLRequestForCity(cityName: String, completion: @escaping (URLRequest?) -> () ) {
+func getPhotoReferenceForCity(cityName: String, completion: @escaping (String?) -> () ) {
     var urlComponents = URLComponents(string: "https://maps.googleapis.com/maps/api/place/")!
     urlComponents.queryItems = [URLQueryItem(name: "key", value: "AIzaSyAF_RSxBaOS7dq62VJJO2p-bX718q3P2lM"),
                                 URLQueryItem(name: "input", value: cityName),
@@ -52,14 +52,14 @@ func getImageURLRequestForCity(cityName: String, completion: @escaping (URLReque
     request.httpMethod = "GET"
     request.url!.appendPathComponent("findplacefromtext/json")
     
-    var imageURLRequest: URLRequest? = nil
-    
     URLSession.shared.dataTask(with: request) { (data, response, error) in
         if let error = error {
             NSLog("requestImageForCity(): error: \(error)")
             completion(nil)
             return
         }
+        
+        var photoReference: String? = nil
         
         if let response = response as? HTTPURLResponse {
             if response.statusCode == 200 {
@@ -72,17 +72,7 @@ func getImageURLRequestForCity(cityName: String, completion: @escaping (URLReque
                 do {
                     let decodedData = try JSONDecoder().decode(GoogleLocationQueryResults.self, from: data)
                     if decodedData.candidates.count > 0 && decodedData.candidates[0].photos.count > 0 {
-                        let photoReference = decodedData.candidates[0].photos[0].photo_reference
-                        var components = URLComponents(string: "https://maps.googleapis.com/maps/api/place/photo")!
-                        
-                        components.queryItems = [URLQueryItem(name: "key", value: "AIzaSyAF_RSxBaOS7dq62VJJO2p-bX718q3P2lM"),
-                                                    URLQueryItem(name: "photoreference", value: photoReference),
-                                                    URLQueryItem(name: "maxwidth", value: "1200"),
-                                                    URLQueryItem(name: "maxheight", value: "1200")
-                                  ]
-                        
-                        imageURLRequest = URLRequest(url: components.url!)
-                        imageURLRequest!.httpMethod = "GET"
+                        photoReference = decodedData.candidates[0].photos[0].photo_reference
                     }
                     
                 } catch {
@@ -97,6 +87,6 @@ func getImageURLRequestForCity(cityName: String, completion: @escaping (URLReque
                 return
             }
         }
-        completion(imageURLRequest)
+        completion(photoReference)
     }.resume()
 }
