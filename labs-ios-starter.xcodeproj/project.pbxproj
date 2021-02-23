@@ -128,6 +128,7 @@
 				46BEB4F224C98F1100FE0CD1 /* Profiles */,
 				7F06742D25D2192700CEEF11 /* Cities */,
 				3A1E5C9B25B923A600CE1A78 /* Map */,
+				7F173F8B25E4862D000A0011 /* Operations */,
 				46BEB4EA24C98EA300FE0CD1 /* Helpers */,
 				465DAA2724BD0BC100D94C24 /* App Lifecycle */,
 				466C427C249A8749007D033E /* Assets.xcassets */,
@@ -195,6 +196,13 @@
 				7F3288AA25DCB814008D9321 /* CityDetailViewController.swift */,
 			);
 			path = Cities;
+			sourceTree = "<group>";
+		};
+		7F173F8B25E4862D000A0011 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Operations;
 			sourceTree = "<group>";
 		};
 		C92C64CD25BFBB4800300976 /* View */ = {
