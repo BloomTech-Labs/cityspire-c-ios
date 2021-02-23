@@ -102,6 +102,7 @@ extension CitiesCollectionViewController: UICollectionViewDelegate, UICollection
     
     // Mark: -- DidSelectItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Tapped cell #\(indexPath.row)")
         fetchSingleCity(cityName: citySearchResults[indexPath.row], completion: { (city) in
             if let city = city {
                 self.selectedCity = city
