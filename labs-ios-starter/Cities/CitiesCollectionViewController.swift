@@ -18,6 +18,11 @@ class CitiesCollectionViewController: UIViewController {
     var citySearchResults: [String] = []
     var selectedCity: City? = nil
     
+    // MARK: -- Properties (Caching)
+    private let photoFetchQueue = OperationQueue()
+    private var fetchOperations: [String:FetchImageOperation] = [:]
+    private let cache = Cache<String, UIImage>()
+    
     // MARK: -- ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
