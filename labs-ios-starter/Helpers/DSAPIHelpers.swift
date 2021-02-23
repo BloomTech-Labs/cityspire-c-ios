@@ -14,7 +14,7 @@ func fetchAllCities(completion: @escaping ([String]) -> () ) {
         var locations: [String] = []
     }
     
-    let baseURL: URL = URL(string: "http://cityspire-c-ds.eba-p3pw36sj.us-east-1.elasticbeanstalk.com/locations")!
+    let baseURL: URL = URL(string: "http://cityspire00n.eba-diy2emuk.us-east-1.elasticbeanstalk.com/locations")!
     var request = URLRequest(url: baseURL)
     request.httpMethod = "GET"
     
@@ -59,7 +59,8 @@ func fetchAllCities(completion: @escaping ([String]) -> () ) {
 func fetchSingleCity(cityName: String, completion: @escaping (City?) -> () ) {
     let jsonBody = try? JSONSerialization.data(withJSONObject: ["location": cityName])
     
-    let baseURL: URL = URL(string: "http://cityspire-c-ds.eba-p3pw36sj.us-east-1.elasticbeanstalk.com/location/data")!
+    //let baseURL: URL = URL(string: "http://cityspire-c-ds.eba-p3pw36sj.us-east-1.elasticbeanstalk.com/location/data")!
+    let baseURL: URL = URL(string: "http://cityspire00n.eba-diy2emuk.us-east-1.elasticbeanstalk.com/location/data")!
     var request = URLRequest(url: baseURL)
     request.httpMethod = "POST"
     request.httpBody = jsonBody

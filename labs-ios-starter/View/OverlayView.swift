@@ -13,17 +13,36 @@ class OverlayView: UIViewController {
     var hasSetPointOrigin = false
     var pointOrigin: CGPoint?
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var populationLabel: UILabel!
+    @IBOutlet weak var monthlyRentLabel: UILabel!
+    @IBOutlet weak var walkScoreLabel: UILabel!
+    @IBOutlet weak var livabilityScoreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         view.addGestureRecognizer(panGesture)
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 10
     }
     
     func updateView(city: String?) {
         guard let city = city else { return }
         cityLabel.text = city
+        getPhotoReferenceForCity(cityName: city, completion: { (photoReference) in
+            guard let photoReference = photoReference else { return }
+            let imageOperation = FetchImageOperation(photoReference: photoReference)
+            imageOperation.start()
+            DispatchQueue.main.async {
+                while(imageOperation.state != .isFinished) {}
+                if let imageData = imageOperation.imageData {
+                    self.imageView.image = UIImage(data: imageData)
+                }
+            }
+        })
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -52,5 +71,9 @@ class OverlayView: UIViewController {
                 }
             }
         }
+    }
+    
+    @IBAction func addCityToFavoritesTapped(_ sender: UIButton) {
+        
     }
 }
