@@ -30,6 +30,7 @@
 		7F14FDAD25DF068C00D4A6D2 /* GooglePlacesAPIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14FDAC25DF068C00D4A6D2 /* GooglePlacesAPIHelpers.swift */; };
 		7F14FDB025DF0C1A00D4A6D2 /* GoogleLocationQueryResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14FDAF25DF0C1A00D4A6D2 /* GoogleLocationQueryResults.swift */; };
 		7F173F8D25E486B1000A0011 /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F173F8C25E486B1000A0011 /* ConcurrentOperation.swift */; };
+		7F173F9025E48768000A0011 /* FetchImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F173F8F25E48768000A0011 /* FetchImageOperation.swift */; };
 		7F3288AB25DCB814008D9321 /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3288AA25DCB814008D9321 /* CityDetailViewController.swift */; };
 		7F76155E25DB4AB300D25459 /* DSAPIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F76155D25DB4AB300D25459 /* DSAPIHelpers.swift */; };
 		7F76156125DB6E1400D25459 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F76156025DB6E1400D25459 /* City.swift */; };
@@ -64,6 +65,7 @@
 		7F14FDAC25DF068C00D4A6D2 /* GooglePlacesAPIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesAPIHelpers.swift; sourceTree = "<group>"; };
 		7F14FDAF25DF0C1A00D4A6D2 /* GoogleLocationQueryResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLocationQueryResults.swift; sourceTree = "<group>"; };
 		7F173F8C25E486B1000A0011 /* ConcurrentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
+		7F173F8F25E48768000A0011 /* FetchImageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImageOperation.swift; sourceTree = "<group>"; };
 		7F3288AA25DCB814008D9321 /* CityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
 		7F76155D25DB4AB300D25459 /* DSAPIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSAPIHelpers.swift; sourceTree = "<group>"; };
 		7F76156025DB6E1400D25459 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				7F173F8C25E486B1000A0011 /* ConcurrentOperation.swift */,
+				7F173F8F25E48768000A0011 /* FetchImageOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			files = (
 				7F14FDAD25DF068C00D4A6D2 /* GooglePlacesAPIHelpers.swift in Sources */,
 				3A1E5CA225B936B600CE1A78 /* LocationSearchTableViewController.swift in Sources */,
+				7F173F9025E48768000A0011 /* FetchImageOperation.swift in Sources */,
 				7F76155E25DB4AB300D25459 /* DSAPIHelpers.swift in Sources */,
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
