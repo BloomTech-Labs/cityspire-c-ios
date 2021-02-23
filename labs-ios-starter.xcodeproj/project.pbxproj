@@ -29,6 +29,9 @@
 		7F06743325D21E6800CEEF11 /* CityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06743225D21E6800CEEF11 /* CityCollectionViewCell.swift */; };
 		7F14FDAD25DF068C00D4A6D2 /* GooglePlacesAPIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14FDAC25DF068C00D4A6D2 /* GooglePlacesAPIHelpers.swift */; };
 		7F14FDB025DF0C1A00D4A6D2 /* GoogleLocationQueryResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14FDAF25DF0C1A00D4A6D2 /* GoogleLocationQueryResults.swift */; };
+		7F173F8D25E486B1000A0011 /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F173F8C25E486B1000A0011 /* ConcurrentOperation.swift */; };
+		7F173F9025E48768000A0011 /* FetchImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F173F8F25E48768000A0011 /* FetchImageOperation.swift */; };
+		7F173F9325E49340000A0011 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F173F9225E49340000A0011 /* Cache.swift */; };
 		7F3288AB25DCB814008D9321 /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3288AA25DCB814008D9321 /* CityDetailViewController.swift */; };
 		7F76155E25DB4AB300D25459 /* DSAPIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F76155D25DB4AB300D25459 /* DSAPIHelpers.swift */; };
 		7F76156125DB6E1400D25459 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F76156025DB6E1400D25459 /* City.swift */; };
@@ -62,6 +65,9 @@
 		7F06743225D21E6800CEEF11 /* CityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F14FDAC25DF068C00D4A6D2 /* GooglePlacesAPIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesAPIHelpers.swift; sourceTree = "<group>"; };
 		7F14FDAF25DF0C1A00D4A6D2 /* GoogleLocationQueryResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLocationQueryResults.swift; sourceTree = "<group>"; };
+		7F173F8C25E486B1000A0011 /* ConcurrentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
+		7F173F8F25E48768000A0011 /* FetchImageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImageOperation.swift; sourceTree = "<group>"; };
+		7F173F9225E49340000A0011 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		7F3288AA25DCB814008D9321 /* CityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
 		7F76155D25DB4AB300D25459 /* DSAPIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSAPIHelpers.swift; sourceTree = "<group>"; };
 		7F76156025DB6E1400D25459 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 				46BEB4F224C98F1100FE0CD1 /* Profiles */,
 				7F06742D25D2192700CEEF11 /* Cities */,
 				3A1E5C9B25B923A600CE1A78 /* Map */,
+				7F173F8B25E4862D000A0011 /* Operations */,
 				46BEB4EA24C98EA300FE0CD1 /* Helpers */,
 				465DAA2724BD0BC100D94C24 /* App Lifecycle */,
 				466C427C249A8749007D033E /* Assets.xcassets */,
@@ -154,6 +161,7 @@
 				46BEB4E024C9828800FE0CD1 /* Profile.swift */,
 				7F76156025DB6E1400D25459 /* City.swift */,
 				7F14FDAF25DF0C1A00D4A6D2 /* GoogleLocationQueryResults.swift */,
+				7F173F9225E49340000A0011 /* Cache.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,6 +203,15 @@
 				7F3288AA25DCB814008D9321 /* CityDetailViewController.swift */,
 			);
 			path = Cities;
+			sourceTree = "<group>";
+		};
+		7F173F8B25E4862D000A0011 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				7F173F8C25E486B1000A0011 /* ConcurrentOperation.swift */,
+				7F173F8F25E48768000A0011 /* FetchImageOperation.swift */,
+			);
+			path = Operations;
 			sourceTree = "<group>";
 		};
 		C92C64CD25BFBB4800300976 /* View */ = {
@@ -287,6 +304,7 @@
 			files = (
 				7F14FDAD25DF068C00D4A6D2 /* GooglePlacesAPIHelpers.swift in Sources */,
 				3A1E5CA225B936B600CE1A78 /* LocationSearchTableViewController.swift in Sources */,
+				7F173F9025E48768000A0011 /* FetchImageOperation.swift in Sources */,
 				7F76155E25DB4AB300D25459 /* DSAPIHelpers.swift in Sources */,
 				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
@@ -302,8 +320,10 @@
 				C92C64D225BFBCCF00300976 /* OverlayView.swift in Sources */,
 				C92C64CB25BFBB1000300976 /* PresentationController.swift in Sources */,
 				7F14FDB025DF0C1A00D4A6D2 /* GoogleLocationQueryResults.swift in Sources */,
+				7F173F8D25E486B1000A0011 /* ConcurrentOperation.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
+				7F173F9325E49340000A0011 /* Cache.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewController.swift in Sources */,
 				7F76156125DB6E1400D25459 /* City.swift in Sources */,
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,

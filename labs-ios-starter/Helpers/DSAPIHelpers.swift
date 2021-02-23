@@ -46,7 +46,7 @@ func fetchAllCities(completion: @escaping ([String]) -> () ) {
                 }
                 
             } else {
-                NSLog("fetchAllCities(): Response \(response.statusCode)")
+                NSLog("fetchAllCities(): Unexpected response \(response.statusCode)")
                 completion([])
                 return
             }
@@ -68,7 +68,7 @@ func fetchSingleCity(cityName: String, completion: @escaping (City?) -> () ) {
     
     URLSession.shared.dataTask(with: request) { (data, response, error) in
         if let error = error {
-            NSLog("fetchAllCities(): error: \(error)")
+            NSLog("fetchSingleCity(): error: \(error)")
             completion(nil)
             return
         }
@@ -77,7 +77,7 @@ func fetchSingleCity(cityName: String, completion: @escaping (City?) -> () ) {
             if response.statusCode == 200 {
                 
                 guard let data = data else {
-                    NSLog("fetchAllCities(): API Response 200, but no data received.")
+                    NSLog("fetchSingleCity(): API Response 200, but no data received.")
                     completion(nil)
                     return
                 }
@@ -86,13 +86,13 @@ func fetchSingleCity(cityName: String, completion: @escaping (City?) -> () ) {
                 do {
                     decodedData = try decoder.decode(City.self, from: data)
                 } catch {
-                    NSLog("fetchAllCities(): Error decoding cities into JSON.")
+                    NSLog("fetchSingleCity(): Error decoding cities into JSON.")
                     completion(nil)
                     return
                 }
                 
             } else {
-                NSLog("fetchAllCities(): Response \(response.statusCode)")
+                NSLog("fetchSingleCity(): Unexpected response \(response.statusCode)")
                 completion(nil)
                 return
             }

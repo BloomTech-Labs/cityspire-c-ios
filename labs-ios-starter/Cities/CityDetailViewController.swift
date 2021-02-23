@@ -32,15 +32,5 @@ class CityDetailViewController: UIViewController {
         rentLabel.text = "Monthly Rent: $\(city.rent_per_month)"
         walkScoreLabel.text = "Walk Score: \(city.walk_score)"
         livabilityScoreLabel.text = "Livability Score: \(city.livability_score)"
-        
-        getImageURLRequestForCity(cityName: city.city_name, completion: { (urlRequest) in
-            guard let urlRequest = urlRequest else { return }
-            loadImage(urlRequest: urlRequest, completion: { (image) in
-                guard let image = image else { return }
-                DispatchQueue.main.async {
-                    self.cityImageView.image = image
-                }
-            })
-        })
     }
 }
