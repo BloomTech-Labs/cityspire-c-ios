@@ -19,6 +19,7 @@ class OverlayView: UIViewController {
     @IBOutlet weak var monthlyRentLabel: UILabel!
     @IBOutlet weak var walkScoreLabel: UILabel!
     @IBOutlet weak var livabilityScoreLabel: UILabel!
+    @IBOutlet weak var bikeScoreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,8 @@ class OverlayView: UIViewController {
     func updateView(city: String?) {
         guard let city = city else { return }
         cityLabel.text = city
+        imageView.image = nil
+        
         getPhotoReferenceForCity(cityName: city, completion: { (photoReference) in
             guard let photoReference = photoReference else { return }
             let imageOperation = FetchImageOperation(photoReference: photoReference)
@@ -40,6 +43,18 @@ class OverlayView: UIViewController {
                 if let imageData = imageOperation.imageData {
                     self.imageView.image = UIImage(data: imageData)
                 }
+            }
+        })
+        
+        fetchSingleCity(cityName: city, completion: { (city) in
+            guard let city = city else { return }
+            DispatchQueue.main.async {
+                self.cityLabel.text = city.city_name
+                self.populationLabel.text = "Population: \(city.population)"
+                self.monthlyRentLabel.text = "Monthly Rent: \(city.rent_per_month)"
+                self.walkScoreLabel.text = "Walk Score: \(city.walk_score)"
+                self.livabilityScoreLabel.text = "Livability Score: \(city.livability_score)"
+                self.bikeScoreLabel.text = "Bike Score: \(city.bike_score)"
             }
         })
         

@@ -89,19 +89,8 @@ class ProfileDetailViewController: UIViewController {
     private func updateViews(with profile: Profile) {
         guard isViewLoaded else { return }
         
-        nameLabel.text = profile.name
-        emailLabel.text = profile.email
-        
-        if let avatarImage = profile.avatarImage {
-            avatarImageView.image = avatarImage
-        } else if let avatarURL = profile.avatarURL {
-            profileController.image(for: avatarURL, completion: { [weak self] (avatarImage) in
-                guard let self = self else { return }
-                
-                self.profile?.avatarImage = avatarImage
-                self.avatarImageView.image = avatarImage
-            })
-        }
+        nameLabel.text = "Name: \(profile.name!)"
+        emailLabel.text = "Email: \(String(profile.email!.dropLast(1)))"
         
         guard isUsersProfile else { return }
         

@@ -52,7 +52,7 @@ class LocationSearchTableViewController: UITableViewController {
         let search = MKLocalSearch(request: request)
         search.start { response, _ in
             guard let response = response else { return }
-            self.handleMapSearchDelegate?.dropPinZoomIn(placemark: response.mapItems[0].placemark)
+            self.handleMapSearchDelegate?.dropPinZoomIn(placemark: response.mapItems[0].placemark, cityName: selectedCell!.textLabel!.text!)
         }
         dismiss(animated: true, completion: nil)
     }

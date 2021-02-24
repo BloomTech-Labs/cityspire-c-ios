@@ -14,4 +14,5 @@ struct City: Decodable {
     var rent_per_month: Int = -1
     var walk_score: Int = -1
     var livability_score: Int = -1
+    var bike_score: Int = -1
 }
