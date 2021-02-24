@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OverlayView" customModule="labs_ios_starter" customModuleProvider="target">
             <connections>
+                <outlet property="bikeScoreLabel" destination="RDo-Nz-Gsc" id="gQ4-LE-nYH"/>
                 <outlet property="cityLabel" destination="uM2-GN-bYC" id="4qW-qr-trM"/>
                 <outlet property="imageView" destination="zgf-We-kEn" id="2ef-Qq-9er"/>
                 <outlet property="livabilityScoreLabel" destination="RKk-hX-soB" id="jtw-IS-OWi"/>
@@ -38,7 +39,7 @@
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="pk6-Pm-mDE">
-                    <rect key="frame" x="113.5" y="313" width="187.5" height="205"/>
+                    <rect key="frame" x="113.5" y="313" width="187.5" height="194.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Dr0-dB-m2X">
                             <rect key="frame" x="0.0" y="0.0" width="187.5" height="44"/>
@@ -60,7 +61,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eYJ-35-8pw">
-                            <rect key="frame" x="0.0" y="50" width="187.5" height="155"/>
+                            <rect key="frame" x="0.0" y="50" width="187.5" height="144.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Population: 2.7 Million" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjt-eq-MrG">
                                     <rect key="frame" x="0.0" y="0.0" width="176.5" height="22.5"/>
@@ -80,20 +81,18 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Livability Score: 8902" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKk-hX-soB">
-                                    <rect key="frame" x="0.0" y="91.5" width="169" height="22.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bike Score: 45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDo-Nz-Gsc">
+                                    <rect key="frame" x="0.0" y="91.5" width="112.5" height="22.5"/>
                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhW-oH-Chf">
-                                    <rect key="frame" x="0.0" y="122" width="176" height="33"/>
-                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                    <state key="normal" title="Add this city to favorites"/>
-                                    <connections>
-                                        <action selector="addCityToFavoritesTapped:" destination="-1" eventType="touchUpInside" id="lEM-wT-LgK"/>
-                                    </connections>
-                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Livability Score: 8902" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKk-hX-soB">
+                                    <rect key="frame" x="0.0" y="122" width="169" height="22.5"/>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                         </stackView>
                     </subviews>

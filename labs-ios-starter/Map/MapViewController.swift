@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 
 protocol HandleMapSearch {
-    func dropPinZoomIn(placemark: MKPlacemark)
+    func dropPinZoomIn(placemark: MKPlacemark, cityName: String)
 }
 
 class MapViewController: UIViewController {
@@ -116,13 +116,13 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 extension MapViewController: HandleMapSearch {
-    func dropPinZoomIn(placemark: MKPlacemark) {
+    func dropPinZoomIn(placemark: MKPlacemark, cityName: String) {
         selectedPin = placemark
         // remove  pins
         mapView.removeAnnotations(mapView.annotations)
         
         annotation.coordinate = placemark.coordinate
-        annotation.title = placemark.name
+        annotation.title = cityName
         
         if let city = placemark.locality,
            let state = placemark.administrativeArea {

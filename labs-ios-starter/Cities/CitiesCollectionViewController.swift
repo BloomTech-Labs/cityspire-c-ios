@@ -17,6 +17,7 @@ class CitiesCollectionViewController: UIViewController {
     var cities: [String] = []
     var citySearchResults: [String] = []
     var selectedCity: City? = nil
+    var imageForSelectedCell: UIImage? = nil
     
     // MARK: -- Properties (Caching)
     private let photoFetchQueue = OperationQueue()
@@ -100,9 +101,8 @@ extension CitiesCollectionViewController: UICollectionViewDelegate, UICollection
         return citySearchResults.count
     }
     
-    // Mark: -- DidSelectItemAt
+    // MARK: -- DidSelectItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Tapped cell #\(indexPath.row)")
         fetchSingleCity(cityName: citySearchResults[indexPath.row], completion: { (city) in
             if let city = city {
                 self.selectedCity = city
@@ -140,8 +140,10 @@ extension CitiesCollectionViewController {
 extension CitiesCollectionViewController {
     // MARK: -- Caching
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if let fetchOperation = fetchOperations[citySearchResults[indexPath.row]] {
-            fetchOperation.cancel()
+        if fetchOperations.count < indexPath.row {
+            if let fetchOperation = fetchOperations[citySearchResults[indexPath.row]] {
+                fetchOperation.cancel()
+            }
         }
     }
 }

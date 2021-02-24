@@ -17,6 +17,9 @@ class ProfileTabBarViewController: UITabBarController {
                                                              object: nil,
                                                              queue: .main,
                                                              using: dismissToLogin)
+        
+        self.selectedViewController = self.viewControllers![1]
+
     }
     
     func dismissToLogin(_ notification: Notification)  {

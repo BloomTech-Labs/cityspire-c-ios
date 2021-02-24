@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
                 self.presentedViewController == nil else { return }
             
             if exists {
-                self.performSegue(withIdentifier: "ShowDetailProfileList", sender: nil)
+                self.performSegue(withIdentifier: "MapSegue", sender: nil)
             } else {
                 self.performSegue(withIdentifier: "ModalAddProfile", sender: nil)
             }
